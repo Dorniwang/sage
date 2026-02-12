@@ -140,6 +140,23 @@ ${ISAACSIM_PATH}/python.sh scripts/run_simulation.py \
 
 This should take about 20 minutes to complete. For debugging purposes, you can run the script without the `--headless` flag to visualize the simulation.
 
+### Simulation Execution on SO-101 with GapONet
+
+Execute robot motions in Isaac Sim simulation:
+
+```bash
+${ISAACSIM_PATH}/python.sh scripts/run_simulation_gaponet.py \
+    --robot-name so101 \
+    --motion-source custom \
+    --motion-files motion_files/so101/custom/custom_motion.txt \
+    --output-folder output \
+    --joint-delta-scale "1.0, 1.0, 1.0, 1.0, 0.2, 0.2" \
+    --gaponet-model /pretriained_path/model.pt \
+    --headless
+```
+
+If you remove --gaponet-model param, it will fallback to original run_simulation.py.
+
 ### Data Analysis
 
 Generate comprehensive analysis reports comparing simulation and real robot data:
